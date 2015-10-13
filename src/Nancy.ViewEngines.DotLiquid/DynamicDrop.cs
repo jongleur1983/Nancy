@@ -36,11 +36,11 @@ namespace Nancy.ViewEngines.DotLiquid
 
             Type modelType = this.model.GetType();
             object value = null;
-            if(modelType.Equals(typeof(Dictionary<string, object>)))
+            if(modelType == typeof(Dictionary<string, object>))
             {
                 value = GetExpandoObjectValue(propertyName);
             }
-            else if (modelType.Equals(typeof(DynamicDictionary)))
+            else if (modelType == typeof(DynamicDictionary))
             {
                 value = GetDynamicDictionaryObjectValue(propertyName);
             }

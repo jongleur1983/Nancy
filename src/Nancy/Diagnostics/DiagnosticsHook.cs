@@ -134,7 +134,7 @@ namespace Nancy.Diagnostics
                 var view = GetDiagnosticsLoginView(ctx);
 
                 view.AddCookie(
-                    new NancyCookie(diagnosticsConfiguration.CookieName, String.Empty, true) { Expires = DateTime.Now.AddDays(-1) });
+                    new NancyCookie(diagnosticsConfiguration.CookieName, string.Empty, true) { Expires = DateTime.Now.AddDays(-1) });
 
                 return view;
             }
@@ -181,7 +181,7 @@ namespace Nancy.Diagnostics
             var hmacBytes = diagnosticsConfiguration.CryptographyConfiguration.HmacProvider.GenerateHmac(encryptedSession);
             var hmacString = Convert.ToBase64String(hmacBytes);
 
-            var cookie = new NancyCookie(diagnosticsConfiguration.CookieName, String.Format("{1}{0}", encryptedSession, hmacString), true);
+            var cookie = new NancyCookie(diagnosticsConfiguration.CookieName, string.Format("{1}{0}", encryptedSession, hmacString), true);
 
             context.Response.AddCookie(cookie);
         }

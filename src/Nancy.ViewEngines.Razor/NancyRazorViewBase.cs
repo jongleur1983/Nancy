@@ -47,7 +47,7 @@
         /// <summary>
         /// Gets the body.
         /// </summary>
-        public String Body { get; private set; }
+        public string Body { get; private set; }
 
         /// <summary>
         /// Gets or sets the section contents.
@@ -73,7 +73,7 @@
         /// </value>
         public bool HasLayout
         {
-            get { return !String.IsNullOrEmpty(this.Layout); }
+            get { return !string.IsNullOrEmpty(this.Layout); }
         }
 
         /// <summary>
@@ -350,7 +350,7 @@
                 throw new InvalidOperationException("Section name " + sectionName + " not found and is required.");
             }
 
-            this.contents.Append(sectionContent ?? String.Empty);
+            this.contents.Append(sectionContent ?? string.Empty);
 
             return null;
         }

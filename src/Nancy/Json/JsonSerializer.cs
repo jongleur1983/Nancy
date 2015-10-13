@@ -134,8 +134,8 @@ namespace Nancy.Json
 
 				if (typeResolver != null) {
 					string typeId = typeResolver.ResolveTypeId (valueType);
-					if (!String.IsNullOrEmpty (typeId))
-						result [JavaScriptSerializer.SerializedTypeNameKey] = typeId;
+                    if (!string.IsNullOrEmpty(typeId))
+                        result [JavaScriptSerializer.SerializedTypeNameKey] = typeId;
 				}
 
 				SerializeValue (result, output);
@@ -343,7 +343,8 @@ namespace Nancy.Json
 			bool first = true;
 			if (typeResolver != null) {
 				string typeId = typeResolver.ResolveTypeId (type);
-				if (!String.IsNullOrEmpty (typeId)) {
+				if (!string.IsNullOrEmpty (typeId))
+                {
 					WriteDictionaryEntry (output, first, JavaScriptSerializer.SerializedTypeNameKey, typeId);
 					first = false;
 				}
@@ -472,7 +473,7 @@ namespace Nancy.Json
 					return;
 
 				default:
-					throw new InvalidOperationException (String.Format ("Invalid type code for enum: {0}", typeCode));
+					throw new InvalidOperationException (string.Format("Invalid type code for enum: {0}", typeCode));
 			}
 		}
 
@@ -564,7 +565,7 @@ namespace Nancy.Json
 
 		void WriteValue (StringBuilder output, string value)
 		{
-			if (String.IsNullOrEmpty (value)) {
+			if (string.IsNullOrEmpty (value)) {
 				StringBuilderExtensions.AppendCount (output, maxJsonLength, "\"\"");
 				return;
 			}

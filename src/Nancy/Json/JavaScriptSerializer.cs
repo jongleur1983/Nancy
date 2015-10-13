@@ -199,7 +199,7 @@ namespace Nancy.Json
                  * an empty value 
                  * (see: https://bugzilla.novell.com/show_bug.cgi?id=328836)
                  */
-                string s = obj as String;
+                string s = obj as string;
                 if (s != null)
                 {
                     if (s == string.Empty)
@@ -295,7 +295,7 @@ namespace Nancy.Json
                     list = new ArrayList();
             }
             else
-                throw new InvalidOperationException(String.Format("Deserializing list type '{0}' not supported.", type.GetType().Name));
+                throw new InvalidOperationException(string.Format("Deserializing list type '{0}' not supported.", type.GetType().Name));
 
             if (list.IsReadOnly)
             {

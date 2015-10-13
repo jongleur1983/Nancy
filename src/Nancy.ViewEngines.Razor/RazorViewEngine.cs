@@ -205,7 +205,7 @@
         private Func<INancyRazorView> GenerateRazorViewFactory(IRazorViewRenderer viewRenderer, GeneratorResults razorResult, Assembly referencingAssembly, Type passedModelType, ViewLocationResult viewLocationResult)
         {
             var outputAssemblyName =
-                Path.Combine(Path.GetTempPath(), String.Format("Temp_{0}.dll", Guid.NewGuid().ToString("N")));
+                Path.Combine(Path.GetTempPath(), string.Format("Temp_{0}.dll", Guid.NewGuid().ToString("N")));
 
             var modelType =
                 FindModelType(razorResult.Document, passedModelType, viewRenderer.ModelCodeGenerator);
@@ -287,7 +287,7 @@
             var type = assembly.GetType("RazorOutput.RazorView");
             if (type == null)
             {
-                var error = String.Format("Could not find type RazorOutput.Template in assembly {0}", assembly.FullName);
+                var error = string.Format("Could not find type RazorOutput.Template in assembly {0}", assembly.FullName);
                 return () => new NancyRazorErrorView(error);
             }
 
@@ -315,7 +315,7 @@
 
         private static string BuildErrorMessages(IEnumerable<CompilerError> errors)
         {
-            return errors.Select(error => String.Format(
+            return errors.Select(error => string.Format(
                 "[{0}] Line: {1} Column: {2} - {3} (<a class='LineLink' href='#{1}'>show</a>)",
                 error.ErrorNumber,
                 error.Line,
